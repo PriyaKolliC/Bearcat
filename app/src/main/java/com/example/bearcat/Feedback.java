@@ -36,6 +36,13 @@ public class Feedback extends AppCompatActivity {
         String qr_string = intent.getExtras().getString("qrcodelabel");
 
         String[] split_labels = qr_string.split("-");
+
+        Log.d("SplitLabels", Integer.valueOf(split_labels.length).toString());
+        if (split_labels.length != 3) {
+            Toast.makeText(this, "Invalid QR Code.", Toast.LENGTH_LONG).show();
+            goToHomePage();
+            return;
+        }
         final String building = split_labels[2];
         final String roomNumber = split_labels[1];
         final String roomType = split_labels[0];
@@ -61,27 +68,15 @@ public class Feedback extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("Feedback", "onClick");
-                AlertDialog ad = new AlertDialog.Builder(Feedback.this).create();
-                String value_inSeries = "" + building + "-" + roomNumber + "-" + roomType;
 
-                ArrayList<Boolean> flags = new ArrayList<Boolean>();
+                ArrayList<Boolean> flags = new ArrayList<>();
 
                 final int childCount = ll.getChildCount();
                 for(int i=0;i<childCount;i++){
                     View each_child = ll.getChildAt(i);
                     if(each_child instanceof CheckBox){
-                        if(((CheckBox) each_child).isChecked()) {
-                            value_inSeries += "-" + "true";
-                            flags.add(true);
-                        }
-                        else {
-                            value_inSeries += "-" + "false";
-                            flags.add(false);
-                        }
+                        flags.add(((CheckBox) each_child).isChecked());
                     }
-
-                    if(each_child instanceof EditText)
-                        value_inSeries += "-" + ((EditText) each_child).getText();
                 }
 
                 try {
@@ -113,12 +108,15 @@ public class Feedback extends AppCompatActivity {
 
     private void requestUnsuccessfull() {
         Toast.makeText(getApplicationContext(), "Error making request to the server.", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Feedback.this, HomePage.class);
-        startActivity(intent);
+        goToHomePage();
     }
 
     private void requestSuccessfull() {
         Toast.makeText(getApplicationContext(), "Your response has been successfully noted.", Toast.LENGTH_LONG).show();
+        goToHomePage();
+    }
+
+    private void goToHomePage() {
         Intent intent = new Intent(Feedback.this, HomePage.class);
         startActivity(intent);
     }
