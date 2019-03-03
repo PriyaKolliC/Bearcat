@@ -12,16 +12,16 @@ import java.util.ArrayList;
 
 public class Api {
     private String ENDPOINT_URI = "destress.appspot.com";
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     OkHttpClient client = new OkHttpClient();
 
-    private static Uri.Builder getUriBuilder() {
+    private Uri.Builder getUriBuilder() {
         return new Uri.Builder()
                 .scheme("https")
                 .authority(ENDPOINT_URI);
     }
 
-    public static void authenticate(String username, String password, AsyncResponse<Boolean> asyncResponse) throws JSONException {
+    public void authenticate(String username, String password, AsyncResponse<Boolean> asyncResponse) throws JSONException {
         String url = getUriBuilder()
                     .appendPath("authenticate")
                     .build()
@@ -40,7 +40,7 @@ public class Api {
         postTask.execute();
     }
 
-    public static void postDataClass(String building,
+    public void postDataClass(String building,
                          String roomNumber,
                          String roomType,
                          ArrayList<Boolean> flags,
@@ -61,7 +61,7 @@ public class Api {
             }
         }
         String url = getUriBuilder()
-                    .appendPath("postData")
+                    .appendPath("postDataClassroom")
                     .build()
                     .toString();
 
@@ -86,7 +86,7 @@ public class Api {
         postTask.execute();
     }
 
-    public static void postDataWash(String building,
+    public void postDataWash(String building,
                                     String roomNumber,
                                     String roomType,
                                     ArrayList<Boolean> flags,
@@ -106,7 +106,7 @@ public class Api {
             }
         }
         String url = getUriBuilder()
-                .appendPath("postData")
+                .appendPath("postDataWashroom")
                 .build()
                 .toString();
 

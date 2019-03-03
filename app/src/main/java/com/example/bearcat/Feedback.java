@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,12 +15,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Button;
 import android.app.AlertDialog;
+import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
 import static android.icu.lang.UCharacter.toUpperCase;
 
 public class Feedback extends AppCompatActivity {
+
+    private static final Api api = new Api();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,7 @@ public class Feedback extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Feedback", "onClick");
                 AlertDialog ad = new AlertDialog.Builder(Feedback.this).create();
                 String value_inSeries = "" + building + "-" + roomNumber + "-" + roomType;
 
@@ -77,23 +84,42 @@ public class Feedback extends AppCompatActivity {
                         value_inSeries += "-" + ((EditText) each_child).getText();
                 }
 
-                if(roomType.equals("class"))
-                    Api.postDataClass(building,roomNumber,roomType,flags);//,AsyncResponse<Boolean>);
-                else
-                    Api.postDataWash(building,roomNumber,roomType,flags);//,AsyncResponse<Boolean>);
-
-                ad.setTitle("Feedback Sent");
-
-                ad.setMessage(value_inSeries);
-                ad.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
+                try {
+                    if (roomType.equals("class"))
+                        api.postDataClass(building, roomNumber, roomType, flags, new AsyncResponse<Boolean>() {
+                            @Override
+                            public void processFinish(Boolean aBoolean) {
+                                if (aBoolean) {
+                                    requestSuccessfull();
+                                } else requestUnsuccessfull();
                             }
                         });
-                ad.show();
+                    else
+                        api.postDataWash(building, roomNumber, roomType, flags, new AsyncResponse<Boolean>() {
+                            @Override
+                            public void processFinish(Boolean aBoolean) {
+                                if (aBoolean) {
+                                    requestSuccessfull();
+                                } else requestUnsuccessfull();
+                            }
+                        });
+                } catch (JSONException e) {
+                    requestUnsuccessfull();
+                }
             }
         });
 
+    }
+
+    private void requestUnsuccessfull() {
+        Toast.makeText(getApplicationContext(), "Error making request to the server.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(Feedback.this, HomePage.class);
+        startActivity(intent);
+    }
+
+    private void requestSuccessfull() {
+        Toast.makeText(getApplicationContext(), "Your response has been successfully noted.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(Feedback.this, HomePage.class);
+        startActivity(intent);
     }
 }

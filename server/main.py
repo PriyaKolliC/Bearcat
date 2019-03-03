@@ -89,8 +89,15 @@ def authenticate():
             response="Authentication Successfull"
     )
 
-@app.route('/postData', methods=['POST'])
-def postData():
+@app.route('/postDataClassroom', methods=['POST'])
+def postDataClassroom():
+    return Response(
+            status=200,
+            response="Data posted successfully"
+    )
+
+@app.route('/postDataWashroom', methods=['POST'])
+def postDataWashroom():
     return Response(
             status=200,
             response="Data posted successfully"
