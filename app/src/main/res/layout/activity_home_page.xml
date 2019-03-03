@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#000000"
+    >
+    <ImageView
+        android:id="@+id/univ_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:src="@drawable/univ_logo1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        />
+
+    <TextView
+        android:id="@+id/hello_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello Bearcat!"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/univ_name"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/problem_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Having a problem with campus facilities or resources"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_below="@+id/hello_text"
+        android:gravity="center"
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report Issue"
+            android:gravity="center"
+            android:background="#ff0000"
+            android:textColor="#ffffff"
+            android:fontFamily="sans-serif"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            />
+    </RelativeLayout>
+</LinearLayout>
