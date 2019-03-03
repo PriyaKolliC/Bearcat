@@ -1,0 +1,7 @@
+runtime: python37
+
+env_variables:
+  CLOUD_SQL_CONNECTION_NAME: 'destress:us-central1:mysql'
+  DB_USER: 'root'
+  DB_PASS: 'qwertyui'
+  DB_NAME: 'app_database'
