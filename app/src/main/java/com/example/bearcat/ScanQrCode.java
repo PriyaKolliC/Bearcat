@@ -57,9 +57,7 @@ public class ScanQrCode extends AppCompatActivity implements ZXingScannerView.Re
         Intent i = new Intent(ScanQrCode.this,Feedback.class);
         i.putExtra("qrcodelabel",qr_string);
         startActivity(i);
-
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
