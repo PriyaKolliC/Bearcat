@@ -1,10 +1,15 @@
 package com.example.bearcat;
 
 import android.content.Intent;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
+import android.app.AlertDialog;
 
 public class Feedback extends AppCompatActivity {
 
