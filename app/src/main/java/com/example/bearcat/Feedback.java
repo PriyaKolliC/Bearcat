@@ -4,7 +4,6 @@ import com.example.bearcat.server.Api;
 import com.example.bearcat.server.AsyncResponse;
 
 import android.content.Intent;
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
