@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Bearcat</string>
+
+    <string name="Class">Sample - Building Classroom Type </string>
+
+    <string name="TechOp1">Power Socket Broken</string>
+    <string name="TechOp2">Switch Off Lights</string>
+    <string name="TechOp3">Too Cold</string>
+    <string name="TechOp4">Too Hot</string>
+    <string name="TechOp5">Dirty Room</string>
+
+    <string name="WashOp1">Water Too Cold</string>
+    <string name="WashOp2">Overflowing Trash</string>
+    <string name="WashOp3">Unclean Cubicles</string>
+    <string name="WashOp4">Toilet Paper Refill</string>
+    <string name="WashOp5">Slippery Floor</string>
+
+    <string name="Other">Other Issues</string>
+    <string name="OtherComments">Any Other Comments</string>
+
+    <string name="Submit">Submit Feedback</string>
 </resources>
