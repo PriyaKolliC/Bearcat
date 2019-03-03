@@ -7,13 +7,52 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.bearcat.server.Api;
+import com.example.bearcat.server.AsyncResponse;
+
+import org.json.JSONException;
+
 public class MainActivity extends AppCompatActivity {
 
-    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//
+//        Log.d("Main", "trying");
+//        Api api = new Api();
+//        try {
+//            Log.d("Main", "trying");
+//            api.authenticate("username", "password", new AsyncResponse<Boolean>() {
+//                @Override
+//                public Boolean processFinish(Boolean aBoolean) {
+//                    Log.d("AsyncResponse", aBoolean.toString());
+//                    return null;
+//                }
+//            });
+//
+//            api.postData(
+//                    "building",
+//                    "111",
+//                    "library",
+//                    false,
+//                    true,
+//                    false,
+//                    false,
+//                    true,
+//                    new AsyncResponse<Boolean>() {
+//                @Override
+//                public Boolean processFinish(Boolean aBoolean) {
+//                    Log.d("PostDataResponse", aBoolean.toString());
+//                    return null;
+//                }
+//            });
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        Log.i("Something", "**********************8888");
 
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.

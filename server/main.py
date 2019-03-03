@@ -72,7 +72,7 @@ def create_tables():
     # Create tables (if they don't already exist)
     with db.connect() as conn:
         conn.execute(
-            "CREATE TABLE IF NOT EXISTS votes "
+            "CREATE TABLE IF NOT EXISTS data "
             "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
             "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
         )
@@ -81,6 +81,20 @@ def create_tables():
 def hello():
     """Return a friendly HTTP greeting."""
     return 'Hello World!!!!'
+
+@app.route('/authenticate', methods=['POST'])
+def authenticate():
+    return Response(
+            status=200,
+            response="Authentication Successfull"
+    )
+
+@app.route('/postData', methods=['POST'])
+def postData():
+    return Response(
+            status=200,
+            response="Data posted successfully"
+    )
 
 
 if __name__ == '__main__':

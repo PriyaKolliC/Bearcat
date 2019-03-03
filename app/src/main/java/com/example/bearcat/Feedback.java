@@ -16,7 +16,5 @@ public class Feedback extends AppCompatActivity {
         String qr_string = intent.getExtras().getString("qrcodelabel");
         TextView qrlabel = (TextView)findViewById(R.id.qrlabel);
         qrlabel.setText(qr_string);
-
-
     }
 }
