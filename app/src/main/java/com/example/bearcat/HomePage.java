@@ -13,15 +13,16 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Button issue = findViewById(R.id.issue);
 
+        Button issue = findViewById(R.id.issue);
         issue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Log.i("button_clicks","Report Issue Clicked");
+
                 Intent i=new Intent(HomePage.this, ScanQrCode.class);
                 startActivity(i);
+
                 Log.i("button_clicks","1");
 
             }

@@ -18,8 +18,9 @@ public class Feedback extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+
         Intent intent = getIntent();
-        String qr_string = intent.getExtras().getString("qrcqrcodelabel");
+        String qr_string = intent.getExtras().getString("qrcodelabel");
 
         String[] split_labels = qr_string.split("-");
         final String building = split_labels[2];

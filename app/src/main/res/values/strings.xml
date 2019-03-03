@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">ScanAway</string>
 
+    <string name="user">Username</string>
+    <string name="pass">Password</string>
+    <string name="login">Login</string>
+
+    <string name="welcome">Hello BEARCAT!!</string>
+    <string name="Step">Let\'s take steps towards a better campus by reporting our problems</string>
+    <string name="Issue">Report Issue</string>
+
     <string name="Class">Sample - Building Classroom Type </string>
 
     <string name="TechOp1">Power Socket Broken</string>

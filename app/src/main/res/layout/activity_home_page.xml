@@ -4,58 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:layout_weight="1"
     android:background="#000000"
-    >
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
     <ImageView
         android:id="@+id/univ_logo"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:src="@drawable/univ_logo1"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="50dp"
-        />
+        android:layout_marginRight="10dp"
+        android:src="@drawable/univ_logo1" />
 
     <TextView
         android:id="@+id/hello_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Bearcat!"
+        android:text="@string/welcome"
+        android:textStyle="bold"
         android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@+id/univ_name"
-        android:gravity="center"
-        />
+        android:textSize="30sp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center" />
+
     <TextView
         android:id="@+id/problem_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Having a problem with campus facilities or resources"
+        android:text="@string/Step"
         android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:layout_marginBottom="40dp"
-        android:layout_below="@+id/hello_text"
-        android:gravity="center"
-        />
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:layout_marginBottom="30dp"
+        android:gravity="center" />
+
         <Button
             android:id="@+id/issue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Report Issue"
+            android:text="@string/Issue"
             android:gravity="center"
-            android:background="#ff0000"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="#FF0000"
             android:textColor="#ffffff"
-            android:fontFamily="sans-serif"
-            android:textSize="20dp"
+            android:textSize="25sp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            />
-    </RelativeLayout>
+            android:paddingRight="10dp" />
+
 </LinearLayout>
