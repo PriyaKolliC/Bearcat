@@ -1,6 +1,7 @@
 package com.example.bearcat;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,17 @@ public class HomePage extends AppCompatActivity {
 
                 Log.i("button_clicks","1");
 
+            }
+        });
+
+
+        Button contribute = findViewById(R.id.contribute);
+        final String link = "https://www.google.co.in/";
+        contribute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Intent.ACTION_VIEW).setData(Uri.parse(link));
+                startActivity(i);
             }
         });
 
